@@ -10,7 +10,7 @@ export default function RootLayout({
   const loggedIn = { firstName: "Alex", lastName: "Borges" };
 
   return (
-    <main className="font-poppins flex h-screen w-full">
+    <main className="font-poppins flex h-screen mx-auto max-w-[96rem] min-w-[112.5rem]">
       <Sidebar user={loggedIn} />
 
       <div className="flex size-full flex-col">
