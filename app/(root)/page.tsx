@@ -23,7 +23,9 @@ function Home() {
 
         <div>
           {" "}
-          <CardManagement banks={[{}, {}]} />
+          <CardManagement
+            banks={[{ currentBalance: 123 }, { currentBalance: 321 }]}
+          />
           LAST TRANSACTIONS
         </div>
       </div>

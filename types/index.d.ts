@@ -136,12 +136,7 @@ declare type SearchParamProps = {
     dateOfBirth: string;
     ssn: string;
   };
-  
-  declare interface CreditCardProps {
-    account: Account;
-    userName: string;
-    showBalance?: boolean;
-  }
+
   
   declare interface BankInfoProps {
     account: Account;
@@ -214,14 +209,13 @@ declare type SearchParamProps = {
     type?: 'mobile' | 'desktop'
   }
   
-  declare interface RightSidebarProps {
-    user: User;
-    transactions: Transaction[];
-    banks: Bank[] & Account[];
-  }
   declare interface BankProps {
     user: User;
-    banks: Bank[] & Account[];
+    transactions: Transaction[];
+    banks: (Bank & Account)[];
+    account: Account;
+    userName: string;
+    showBalance?: boolean;
   }
   
   declare interface SidebarProps {

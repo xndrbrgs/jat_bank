@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const RightSide = ({ user, transactions }: RightSidebarProps) => {
+const RightSide = ({ user, transactions }: BankProps) => {
   return (
     <aside
       className="hidden no-scrollbar h-screen max-h-screen flex-col  bg-black border-black rounded-l-3xl xl:flex 

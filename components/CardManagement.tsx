@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/carousel";
 import BankCard from "./BankCard";
 
-const CardManagement = ({ banks, user }: BankProps) => {
+const CardManagement = ({ banks }: BankProps) => {
   return (
     <section className="w-full">
-      <div className="flex justify-between w-[50%] items-center">
+      <div className="flex justify-between items-center">
         <h1>Card Management</h1>
         <div className="flex space-x-2 text-gray-400 hover:text-gray-200 transition duration-150 cursor-pointer">
           <span>
@@ -24,11 +24,11 @@ const CardManagement = ({ banks, user }: BankProps) => {
       <div className="mt-6 w-full md:w-[40%]">
         <Carousel className="w-full">
           <CarouselContent>
-            {banks.map((bank, user) => (
-              <CarouselItem>
+            {banks.map((bank) => (
+              <CarouselItem key={bank.$id}>
                 <BankCard
                   key={bank.$id}
-                  account={bank?.accountId}
+                  account={bank?.currentBalance}
                   userName={`${bank.userId}`}
                   showBalance={false}
                 />
