@@ -219,6 +219,10 @@ declare type SearchParamProps = {
     transactions: Transaction[];
     banks: Bank[] & Account[];
   }
+  declare interface BankProps {
+    user: User;
+    banks: Bank[] & Account[];
+  }
   
   declare interface SidebarProps {
     user: User;
