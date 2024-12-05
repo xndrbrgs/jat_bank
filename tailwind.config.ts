@@ -11,6 +11,16 @@ export default {
 	],
 	theme: {
 		extend: {
+			keyframes: {
+				gradientSlide: {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' },
+				},
+			},
+			animation: {
+				gradientSlide: 'gradientSlide 3s infinite',
+			},
 			fontFamily: {
 				poppins: ['var(--font-poppins)']
 			},

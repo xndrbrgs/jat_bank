@@ -1,14 +1,11 @@
 import CardManagement from "@/components/CardManagement";
 import Header from "@/components/Header";
 import RightSide from "@/components/RightSide";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
 import React from "react";
 
-function Home() {
-  const loggedIn = {
-    firstName: "Alex",
-    lastName: "Borges",
-    email: "alex@user.com",
-  };
+const Home = async () => {
+  const loggedIn = await getLoggedInUser()
   return (
     <div className="home">
       <div className="home-content">
@@ -16,7 +13,7 @@ function Home() {
           <Header
             type="greeting"
             title="Overview"
-            user={loggedIn?.firstName || "Guest"}
+            user={loggedIn?.name || "Guest"}
             subtext="Access and manage your account and transactions"
           />
         </header>
@@ -24,7 +21,7 @@ function Home() {
         <div>
           {" "}
           <CardManagement
-            banks={[{ currentBalance: 123 }, { currentBalance: 321 }]}
+            banks={[{}, {}]}
           />
           LAST TRANSACTIONS
         </div>

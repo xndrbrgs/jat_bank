@@ -43,37 +43,16 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
 
         if (!newUserAccount) throw new Error('Error creating user')
 
-        const dwollaCustomerUrl = await createDwollaCustomer({
-            ...userData,
-            type: 'personal',
-        })
-
-        if (!dwollaCustomerUrl) throw new Error('Error creating Dwolla customer')
-
-        const dwollaCustomerId = extractCustomerIdFromUrl(dwollaCustomerUrl);
-
-        const newUser = await database.createDocument(
-            DATABASE_ID!,
-            USER_COLLECTION_ID!,
-            ID.unique(),
-            {
-                ...userData,
-                userId: newUserAccount.$id,
-                dwollaCustomerId,
-                dwollaCustomerUrl
-            }
-        )
-
         const session = await account.createEmailPasswordSession(email, password);
-
-        cookies().set("appwrite-session", session.secret, {
+        const getCookies = await cookies()
+        getCookies.set("appwrite-session", session.secret, {
             path: "/",
             httpOnly: true,
             sameSite: "strict",
             secure: true,
         });
 
-        return parseStringify(newUser)
+        return parseStringify(newUserAccount)
     } catch (error) {
         console.log('Error:', error)
     }
@@ -91,10 +70,12 @@ export async function getLoggedInUser() {
     }
 }
 
+
 export const logOutAccount = async () => {
     try {
         const { account } = await createSessionClient()
-        cookies().delete('appwrite-session')
+        const getCookies = await cookies()
+        getCookies.delete('appwrite-session')
         await account.deleteSession('current')
     } catch (error) {
         return null

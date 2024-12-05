@@ -45,6 +45,10 @@ body {
   -webkit-backdrop-filter: blur(4px);
 }
 
+.btn-duration {
+  transition-duration: 2000ms;
+}
+
 @layer utilities {
   .home {
     @apply bg-graybg no-scrollbar flex w-full flex-row max-xl:max-h-screen max-xl:overflow-y-scroll;
@@ -83,14 +87,41 @@ body {
   }
 
   .form-btn {
-    @apply text-lg rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
+    @apply relative px-6 py-3 text-white rounded-lg bg-gradient-to-r 
+    from-blue-500 via-purple-500 to-pink-500 bg-[length:200%_200%] 
+    animate-gradientSlide transition-all btn-duration hover:bg-transparent;
   }
 
   .form-link {
-    @apply text-lg cursor-pointer font-medium text-bankGradient;
+    @apply  cursor-pointer;
   }
 
   .input-class {
     @apply text-sm placeholder:text-sm rounded-lg border border-gray-500 text-gray-100 placeholder:text-gray-100 hover:border-white transition duration-150;
+  }
+
+   /* Footer */
+   .footer {
+    @apply flex cursor-pointer items-center justify-between gap-2 py-6;
+  }
+
+  .footer_name {
+    @apply flex size-10 items-center justify-center rounded-full bg-gray-700 max-xl:hidden;
+  }
+
+  .footer_email {
+    @apply flex flex-1 flex-col justify-center max-xl:hidden;
+  }
+
+  .footer_name-mobile {
+    @apply flex size-10 items-center justify-center rounded-full bg-gray-700;
+  }
+
+  .footer_email-mobile {
+    @apply flex flex-1 flex-col justify-center;
+  }
+
+  .footer_image {
+    @apply relative size-5 max-xl:w-full max-xl:flex max-xl:justify-center max-xl:items-center;
   }
 }
