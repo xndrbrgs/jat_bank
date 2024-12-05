@@ -24,8 +24,8 @@ const CardManagement = ({ banks }: BankProps) => {
       <div className="mt-6 w-full md:w-[40%]">
         <Carousel className="w-full">
           <CarouselContent>
-            {banks.map((bank, i) => (
-              <CarouselItem key={i}>
+            {banks.map((bank) => (
+              <CarouselItem key={bank.id}>
                 <BankCard
                   key={bank.$id}
                   account={bank?.currentBalance}

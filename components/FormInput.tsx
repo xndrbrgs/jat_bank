@@ -13,9 +13,17 @@ interface FormInputProps {
   name: FieldPath<z.infer<typeof formSchema>>;
   label: string;
   placeholder: string;
+  id?: string; // Optional id prop
 }
 
-const FormInput = ({ control, name, label, placeholder }: FormInputProps) => {
+const FormInput = ({
+  control,
+  name,
+  label,
+  placeholder,
+  id,
+}: FormInputProps) => {
+  const inputId = id || `${name}-form-item`;
   return (
     <FormField
       control={control}
@@ -26,6 +34,7 @@ const FormInput = ({ control, name, label, placeholder }: FormInputProps) => {
           <div className="flex w-full flex-col">
             <FormControl>
               <Input
+                id={inputId}
                 placeholder={placeholder}
                 className="input-class"
                 type={name === "password" ? "password" : "text"}

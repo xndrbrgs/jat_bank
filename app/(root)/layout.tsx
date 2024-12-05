@@ -10,7 +10,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const loggedIn = await getLoggedInUser();
-  if (!loggedIn) redirect("sign-in");
+  console.log("Logged In User in RootLayout:", loggedIn);
+  if (!loggedIn) {
+    console.warn("Redirecting due to null user...");
+    redirect("/sign-in");
+  }
 
   return (
     <main className="font-poppins flex h-screen mx-auto max-w-[96rem] min-w-[112.5rem]">

@@ -21,7 +21,7 @@ const Home = async () => {
         <div>
           {" "}
           <CardManagement
-            banks={[{}, {}]}
+            banks={[{}]}
           />
           LAST TRANSACTIONS
         </div>

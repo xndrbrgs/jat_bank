@@ -63,10 +63,13 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
 export async function getLoggedInUser() {
     try {
         const { account } = await createSessionClient();
+
         const user = await account.get();
-        return parseStringify(user)
+
+        const parsedUser = parseStringify(user);
+        return parsedUser;
     } catch (error) {
-        return null;
+        console.error("Error fetching logged-in user:", error);
     }
 }
 
