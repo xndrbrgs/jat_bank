@@ -15,13 +15,13 @@ import { authFormSchema } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { getLoggedInUser, signIn, signUp } from "@/lib/actions/user.actions";
+import PlaidLink from "./PlaidLink";
 
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
   const formSchema = authFormSchema(type);
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
-  
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -97,7 +97,9 @@ const AuthForm = ({ type }: { type: string }) => {
         </div>
       </header>
       {user ? (
-        <div className="flex flex-col gap-4">{/* PlaidLink  */}</div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>

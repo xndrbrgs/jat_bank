@@ -203,7 +203,18 @@ export const authFormSchema = (type: string) => z.object({
   city: type === 'sign-in' ? z.string().optional() : z.string().max(50),
   state: type === 'sign-in' ? z.string().optional() : z.string().min(2).max(2),
   postalCode: type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
-  dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
+  dateOfBirth: type === "sign-in"
+    ? z.string().optional()
+    : z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid date format (YYYY-MM-DD)")
+      .refine((date) => {
+        const today = new Date();
+        const dob = new Date(date);
+        const age = today.getFullYear() - dob.getFullYear();
+        const hasHadBirthday = today >= new Date(today.getFullYear(), dob.getMonth(), dob.getDate());
+        return age > 18 || (age === 18 && hasHadBirthday);
+      }, "You must be 18 years or older to sign up."),
   ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3),
   // both
   email: z.string().email(),

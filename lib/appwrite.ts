@@ -9,7 +9,7 @@ export async function createSessionClient() {
         .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!);
 
 
-    const getCookies = await cookies();
+    let getCookies = await cookies();
     const session = getCookies.get("appwrite-session");
     
     if (!session || !session.value) {
