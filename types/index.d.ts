@@ -225,7 +225,7 @@ declare type SearchParamProps = {
     user: User;
   }
   
-  declare interface RecentTransactionsProps {
+  declare interface LastTransactionsProps {
     accounts: Account[];
     transactions: Transaction[];
     appwriteItemId: string;

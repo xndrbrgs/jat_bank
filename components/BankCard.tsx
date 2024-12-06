@@ -12,17 +12,30 @@ const BankCard = ({
 }: BankProps) => {
   return (
     <div className="p-1">
-      <Card className="h-[15rem] bg-gradient-to-r from-red-600 via-red-500 to-red-700 border-none">
-        <CardContent className="flex flex-col p-6">
-          <div className="flex justify-between">
-            <span className="">{account}</span>
-            <span className="">**** {mask}</span>
+      <Card className="relative w-96 h-48 bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-xl shadow-xl border-gray-800 overflow-hidden">
+        <CardContent className="">
+          {/* <!-- Glassmorphism Effect (Backdrop Blur) --> */}
+          <div className="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl"></div>
+
+          {/* <!-- Glossy shine effect --> */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white opacity-15 pointer-events-none"></div>
+
+          {/* <!-- Card Holder Label --> */}
+          <div className="absolute top-4 left-4 text-white text-lg font-semibold tracking-wide">
+            {account}
           </div>
-          <div>
-            <span className="text-2xl">{formatAmount(balance)}</span>
+
+          {/* <!-- Card Number --> */}
+          <div className="absolute top-14 left-4 text-white text-xl font-mono tracking-widest">
+            **** **** **** {mask}
           </div>
-          <div>
-            <span>{officialName}</span>
+          <div className="absolute bottom-16 left-4 text-white text-xl font-mono tracking-widest">
+            {formatAmount(balance)}
+          </div>
+
+          {/* <!-- Optional Card Brand (Visa, MasterCard, etc.) --> */}
+          <div className="absolute bottom-4 left-4 text-white text-sm">
+            <span className="bg-white text-black px-2 rounded-md">VISA</span>
           </div>
         </CardContent>
       </Card>

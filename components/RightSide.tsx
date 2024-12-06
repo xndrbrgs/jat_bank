@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const RightSide = ({ user, transactions }: BankProps) => {
   return (
     <aside
-      className="hidden no-scrollbar h-screen max-h-screen flex-col  bg-black border-black rounded-l-3xl xl:flex 
+      className="hidden no-scrollbar h-screen max-h-screen flex-col border-l border-gray-800 xl:flex 
     min-w-[50%] xl:overflow-y-scroll"
     >
       <section className="m-8 flex flex-col">

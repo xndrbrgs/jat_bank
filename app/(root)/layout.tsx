@@ -17,7 +17,7 @@ export default async function RootLayout({
   }
 
   return (
-    <main className="font-poppins flex h-screen mx-auto max-w-[96rem] min-w-[112.5rem]">
+    <main className="font-poppins flex h-screen mx-auto max-w-[96rem] min-w-[112.5rem] border-x border-gray-800">
       <Sidebar user={loggedIn} />
 
       <div className="flex size-full flex-col">

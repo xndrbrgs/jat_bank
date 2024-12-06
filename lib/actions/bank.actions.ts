@@ -45,7 +45,7 @@ export const getAccounts = async ({ userId }: getAccountsProps) => {
                     type: accountData.type as string,
                     subtype: accountData.subtype! as string,
                     appwriteItemId: bank.$id,
-                    sharaebleId: bank.shareableId,
+                    shareableId: bank.shareableId,
                 };
 
                 return account;
@@ -101,6 +101,12 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
             accessToken: bank?.accessToken,
         });
 
+        // Check if transactions is an array before attempting to iterate
+        const allTransactions = [
+            ...(Array.isArray(transactions) ? transactions : []),
+            ...transferTransactions,
+        ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
         const account = {
             id: accountData.account_id,
             availableBalance: accountData.balances.available!,
@@ -114,11 +120,6 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
             appwriteItemId: bank.$id,
         };
 
-        // sort transactions by date such that the most recent transaction is first
-        const allTransactions = [...transactions, ...transferTransactions].sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
-
         return parseStringify({
             data: account,
             transactions: allTransactions,
@@ -127,6 +128,7 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
         console.error("An error occurred while getting the account:", error);
     }
 };
+
 
 // Get bank info
 export const getInstitution = async ({

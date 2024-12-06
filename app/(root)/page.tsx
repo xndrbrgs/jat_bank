@@ -1,5 +1,6 @@
 import CardManagement from "@/components/CardManagement";
 import Header from "@/components/Header";
+import LastTransactions from "@/components/LastTransactions";
 import RightSide from "@/components/RightSide";
 import { getAccount, getAccounts } from "@/lib/actions/bank.actions";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
@@ -7,6 +8,7 @@ import React from "react";
 
 const Home = async ({ searchParams }: SearchParamProps) => {
   const { id, page } = await searchParams;
+  const currentPage = Number(page as string) || 1;
   const loggedIn = await getLoggedInUser();
   const accounts = await getAccounts({
     userId: loggedIn.$id,
@@ -39,7 +41,13 @@ const Home = async ({ searchParams }: SearchParamProps) => {
         <div>
           {" "}
           <CardManagement banks={accountsData?.slice(0, 2)} />
-          LAST TRANSACTIONS
+
+          <LastTransactions
+            accounts={accountsData}
+            transactions={account?.transactions}
+            appwriteItemId={appwriteItemId}
+            page={currentPage}
+          />
         </div>
       </div>
 
