@@ -213,7 +213,10 @@ declare type SearchParamProps = {
     user: User;
     transactions: Transaction[];
     banks: (Bank & Account)[];
-    account: Account;
+    account: string;
+    mask: string;
+    officialName: string;
+    balance: number;
     userName: string;
     showBalance?: boolean;
   }

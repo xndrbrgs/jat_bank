@@ -28,7 +28,10 @@ const CardManagement = ({ banks }: BankProps) => {
               <CarouselItem key={bank.id}>
                 <BankCard
                   key={bank.$id}
-                  account={bank?.currentBalance}
+                  officialName={bank?.officialName}
+                  account={bank?.name}
+                  mask={bank?.mask}
+                  balance={bank?.currentBalance}
                   userName={`${bank.userId}`}
                   showBalance={false}
                 />
