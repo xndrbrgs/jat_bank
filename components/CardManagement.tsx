@@ -13,15 +13,15 @@ const CardManagement = ({ banks }: BankProps) => {
   return (
     <section className="w-full">
       <div className="flex justify-between items-center">
-        <h1>Card Management</h1>
+        <h1 className="text-lg">Card Management</h1>
         <div className="flex space-x-2 text-gray-400 hover:text-gray-200 transition duration-150 cursor-pointer">
           <span>
-            <CirclePlus />
+            <CirclePlus className="size-5" />
           </span>
-          <span>Add Card</span>
+          <span className="text-sm">Add Card</span>
         </div>
       </div>
-      <div className="mt-6 w-full md:w-[40%]">
+      <div className="mt-6 w-full md:w-[60%]">
         <Carousel className="w-full">
           <CarouselContent>
             {banks.map((bank) => (
