@@ -1,4 +1,5 @@
 import MobileNav from "@/components/MobileNav";
+import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import Image from "next/image";
@@ -17,8 +18,9 @@ export default async function RootLayout({
   }
 
   return (
-    <main className="font-poppins flex h-screen mx-auto max-w-[96rem] min-w-[112.5rem] border-x border-gray-800">
-      <Sidebar user={loggedIn} />
+    <main className="font-poppins h-screen mx-auto min-[1800px]:max-w-[1536px] min-[1800px]:border-x border-x border-gray-800">
+      {/* <Sidebar user={loggedIn} /> */}
+      <Navbar user={loggedIn} />
 
       <div className="flex size-full flex-col">
         <div className="root-layout flex justify-between md:hidden">

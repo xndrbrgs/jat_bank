@@ -1,38 +1,27 @@
 "use client";
 
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { sidebarLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Footer from "./Logout";
+import Logout from "./Logout";
 
-function MobileNav({ user }: MobileNavProps) {
+const Navbar = ({ user }: SidebarProps) => {
   const pathname = usePathname();
   return (
-    <section className="w-full max-w-[16.5rem]">
-      <Sheet>
-        <SheetTrigger>
-          <Image
-            src="/icons/hamburger.svg"
-            width={30}
-            height={30}
-            alt="Hamburger Menu Icon"
-            className="cursor-pointer"
-          />
-        </SheetTrigger>
-        <SheetContent className="border-none bg-black">
-          <SheetTitle></SheetTitle>
+    <nav className="border-b border-gray-800 w-full">
+      <div className="flex items-center justify-between px-4 py-2">
+        <div className="flex items-center">
+          <Link href="/" className="cursor-pointer flex items-center">
+            <Image src="/images/logo.png" width={64} height={64} alt="Logo" />
+            <span className="font-semibold">JAT Banking</span>
+          </Link>
+        </div>
+        <div className="flex flex-row">
           {sidebarLinks.map((link) => {
             const isActive =
               pathname === link.route || pathname.startsWith(`${link.route}/`);
@@ -45,7 +34,7 @@ function MobileNav({ user }: MobileNavProps) {
                   { "bg-graybg": isActive }
                 )}
               >
-                <div className="relative size-6">
+                <div className="relative size-5">
                   <Image
                     src={link.imgURL}
                     alt={link.label}
@@ -57,11 +46,11 @@ function MobileNav({ user }: MobileNavProps) {
               </Link>
             );
           })}
-          <Footer user={user} type="mobile" />
-        </SheetContent>
-      </Sheet>
-    </section>
+        </div>
+        <Logout user={user} type="desktop" />
+      </div>
+    </nav>
   );
-}
+};
 
-export default MobileNav;
+export default Navbar;

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const Footer = ({ user, type = "desktop" }: FooterProps) => {
+const Logout = ({ user, type = "desktop" }: FooterProps) => {
   const router = useRouter();
 
   const handleLogOut = async () => {
@@ -13,17 +13,19 @@ const Footer = ({ user, type = "desktop" }: FooterProps) => {
   };
   return (
     <footer className="footer">
+      <div
+        className={type === "mobile" ? "footer_email-mobile" : "footer_email"}
+      >
+        <span className="text-sm truncate font-normal text-end">
+          {user?.firstName} {user?.lastName}
+        </span>
+        <span className="text-sm truncate text-gray-400">{user?.email}</span>
+      </div>
       <div className={type === "mobile" ? "footer_name-mobile" : "footer_name"}>
         <p className="text-xl font-bold text-gray-400 ">{user?.firstName[0]}</p>
       </div>
       <div
-        className={type === "mobile" ? "footer_email-mobile" : "footer_email"}
-      >
-        <span className="text-sm truncate font-normal">{user?.firstName}</span>
-        <span className="text-sm truncate text-gray-400">{user?.email}</span>
-      </div>
-      <div
-        className="footer_image hover:brightness-[2] transition duration-150"
+        className="footer_image hover:brightness-[2] transition duration-150 ml-2"
         onClick={handleLogOut}
       >
         <Image src="icons/logout.svg" fill alt="Logout Button" />
@@ -32,4 +34,4 @@ const Footer = ({ user, type = "desktop" }: FooterProps) => {
   );
 };
 
-export default Footer;
+export default Logout;
