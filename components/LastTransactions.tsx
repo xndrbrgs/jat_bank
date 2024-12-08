@@ -24,6 +24,6 @@ const LastTransactions = ({
       </div>
     </section>
   );
-};
+}; 
 
 export default LastTransactions;
