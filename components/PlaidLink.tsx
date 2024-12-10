@@ -2,7 +2,7 @@ import {
   createLinkToken,
   exchangePublicToken,
 } from "@/lib/actions/user.actions";
-import { StyledString } from "next/dist/build/swc/types";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
 import {
@@ -45,13 +45,49 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
   return (
     <>
       {variant === "primary" ? (
-        <Button className="form-btn" onClick={() => open()} disabled={!ready} >
+        <Button className="form-btn" onClick={() => open()} disabled={!ready}>
           Connect Bank
         </Button>
       ) : variant === "ghost" ? (
-        <Button>Connect Bank</Button>
+        <Button
+          variant="ghost"
+          className="form-btn"
+          onClick={() => open()}
+          disabled={!ready}
+        >
+          <Image
+            src="/icons/connect-bank.svg"
+            width={24}
+            height={24}
+            alt="Connect Bank Icon"
+          />
+          <p className="text-sm hidden xl:block">Connect Bank</p>
+        </Button>
+      ) : variant === "link" ? (
+        <Button
+          variant="link"
+          className="hover:brightness-[2] transition duration-150"
+          onClick={() => open()}
+          disabled={!ready}
+        >
+          <Image
+            src="/icons/connect-bank.svg"
+            width={24}
+            height={24}
+            alt="Connect Bank Icon"
+          />
+          <p className="text-sm hidden xl:block">Connect Bank</p>
+        </Button>
       ) : (
-        <Button>Connect Bank</Button>
+        <Button className="form-btn" onClick={() => open()} disabled={!ready}>
+          <Image
+            src="/icons/connect-bank.svg"
+            width={24}
+            height={24}
+            alt="Connect Bank Icon"
+          />
+          <p className="text-sm">Connect Bank</p>
+        </Button>
       )}
     </>
   );

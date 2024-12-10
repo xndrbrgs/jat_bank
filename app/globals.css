@@ -57,7 +57,7 @@ body {
   }
 
   .home-content {
-    @apply no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
+    @apply no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:pt-12 max-h-screen xl:overflow-y-scroll;
   }
 
   .home-header {
@@ -95,15 +95,15 @@ body {
   }
 
   .form-link {
-    @apply  cursor-pointer;
+    @apply cursor-pointer;
   }
 
   .input-class {
     @apply text-sm placeholder:text-sm rounded-lg border border-gray-500 text-gray-100 placeholder:text-gray-100 hover:border-white transition duration-150;
   }
 
-   /* Footer */
-   .footer {
+  /* Footer */
+  .footer {
     @apply flex cursor-pointer items-center justify-between gap-3;
   }
 

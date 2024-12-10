@@ -21,11 +21,6 @@ const Home = async ({ searchParams }: SearchParamProps) => {
 
   const account = await getAccount({ appwriteItemId });
 
-  console.log({
-    accountsData,
-    account,
-  });
-
   return (
     <div className="home">
       <div className="home-content">
@@ -38,19 +33,14 @@ const Home = async ({ searchParams }: SearchParamProps) => {
           />
         </header>
 
-        <div>
-          {" "}
-          <CardManagement banks={accountsData?.slice(0, 2)} />
-
-          <LastTransactions
-            accounts={accountsData}
-            transactions={account?.transactions}
-            appwriteItemId={appwriteItemId}
-            page={currentPage}
-          />
-        </div>
+        <CardManagement banks={accountsData?.slice(0, 2)} />
+        <LastTransactions
+          accounts={accountsData}
+          transactions={account?.transactions}
+          appwriteItemId={appwriteItemId}
+          page={currentPage}
+        />
       </div>
-
       <RightSide user={loggedIn} transactions={accounts?.transactions} />
     </div>
   );

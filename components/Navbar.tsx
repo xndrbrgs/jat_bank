@@ -6,14 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import Footer from "./Logout";
 import Logout from "./Logout";
+import PlaidLink from "./PlaidLink";
 
 const Navbar = ({ user }: SidebarProps) => {
   const pathname = usePathname();
   return (
-    <nav className="border-b border-gray-800 w-full">
+    <nav className="border-b border-gray-800 w-full sticky top-0 left-0 backdrop-blur-2xl z-50">
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center">
           <Link href="/" className="cursor-pointer flex items-center">
@@ -21,7 +20,8 @@ const Navbar = ({ user }: SidebarProps) => {
             <span className="font-semibold">JAT Banking</span>
           </Link>
         </div>
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center">
+          <PlaidLink user={user} variant="link" />
           {sidebarLinks.map((link) => {
             const isActive =
               pathname === link.route || pathname.startsWith(`${link.route}/`);

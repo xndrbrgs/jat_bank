@@ -1,5 +1,6 @@
 import { formatAmount } from "@/lib/utils";
 import React from "react";
+import CardDetails from "./CardDetails";
 import { Card, CardContent } from "./ui/card";
 
 const BankCard = ({
@@ -11,7 +12,7 @@ const BankCard = ({
   showBalance = true,
 }: BankProps) => {
   return (
-    <div className="p-1">
+    <div className="w-max">
       <Card className="relative w-96 h-48 bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-xl shadow-xl border-gray-800 overflow-hidden">
         <CardContent className="">
           {/* <!-- Glassmorphism Effect (Backdrop Blur) --> */}
@@ -22,7 +23,7 @@ const BankCard = ({
 
           {/* <!-- Card Holder Label --> */}
           <div className="absolute top-4 left-4 text-white text-lg font-semibold tracking-wide">
-            {account}
+            {userName}
           </div>
 
           {/* <!-- Card Number --> */}
@@ -35,10 +36,13 @@ const BankCard = ({
 
           {/* <!-- Optional Card Brand (Visa, MasterCard, etc.) --> */}
           <div className="absolute bottom-4 left-4 text-white text-sm">
-            <span className="bg-white text-black px-2 rounded-md">VISA</span>
+            <span className="bg-white text-black px-2 rounded-md">
+              {officialName}
+            </span>
           </div>
         </CardContent>
       </Card>
+      <p>{showBalance && <CardDetails title={account} />}</p>
     </div>
   );
 };

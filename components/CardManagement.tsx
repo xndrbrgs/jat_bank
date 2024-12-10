@@ -12,8 +12,8 @@ import BankCard from "./BankCard";
 const CardManagement = ({ banks }: BankProps) => {
   return (
     <section className="w-full">
-      <div className="flex justify-between items-center">
-        <h1 className="text-lg">Card Management</h1>
+      <div className="flex items-center">
+        <h1 className="text-lg mr-12">Card Management</h1>
         <div className="flex space-x-2 text-gray-400 hover:text-gray-200 transition duration-150 cursor-pointer">
           <span>
             <CirclePlus className="size-5" />
@@ -21,25 +21,28 @@ const CardManagement = ({ banks }: BankProps) => {
           <span className="text-sm">Add Card</span>
         </div>
       </div>
-      <div className="mt-6 w-full md:w-[60%]">
-        <Carousel className="w-full">
-          <CarouselContent>
-            {banks.map((bank) => (
-              <CarouselItem key={bank.id}>
-                <BankCard
-                  key={bank.$id}
-                  officialName={bank?.officialName}
-                  account={bank?.name}
-                  mask={bank?.mask}
-                  balance={bank?.currentBalance}
-                  userName={`${bank.userId}`}
-                  showBalance={false}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselNext />
-        </Carousel>
+      <div className="mt-6 flex justify-center">
+        <div className="w-full md:w-[60%]">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {banks.map((bank) => (
+                <CarouselItem key={bank.id}>
+                  <BankCard
+                    key={bank.$id}
+                    officialName={bank?.officialName}
+                    account={bank?.shareableId}
+                    mask={bank?.mask}
+                    balance={bank?.currentBalance}
+                    userName={bank?.name}
+                    showBalance={false}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
       </div>
       <div></div>
     </section>

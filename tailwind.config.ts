@@ -20,6 +20,7 @@ export default {
 			},
 			animation: {
 				gradientSlide: 'gradientSlide 3s infinite',
+				gradientTextSlide: 'gradientTextSlide 3s infinite',
 			},
 			fontFamily: {
 				poppins: ['var(--font-poppins)']
