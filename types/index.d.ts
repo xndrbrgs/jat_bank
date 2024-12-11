@@ -292,6 +292,12 @@ declare interface CreateTransactionProps {
   email: string;
 }
 
+declare interface RightSidebarProps {
+  user: User;
+  transactions: Transaction[];
+  banks: Bank[] & Account[];
+}
+
 declare interface getTransactionsByBankIdProps {
   bankId: string;
 }

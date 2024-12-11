@@ -22,21 +22,21 @@ const BankCard = ({
           <div className="absolute inset-0 bg-gradient-to-t from-white opacity-15 pointer-events-none"></div>
 
           {/* <!-- Card Holder Label --> */}
-          <div className="absolute top-4 left-4 text-white text-lg font-semibold tracking-wide">
+          <div className="absolute top-4 left-4 text-white text-lg tracking-wide">
             {userName}
           </div>
 
           {/* <!-- Card Number --> */}
-          <div className="absolute top-14 left-4 text-white text-xl font-mono tracking-widest">
+          <div className="absolute top-14 left-4 text-white text-xl tracking-widest">
             **** **** **** {mask}
           </div>
-          <div className="absolute bottom-16 left-4 text-white text-xl font-mono tracking-widest">
+          <div className="absolute bottom-16 left-4 text-white text-xl tracking-widest">
             {formatAmount(balance)}
           </div>
 
           {/* <!-- Optional Card Brand (Visa, MasterCard, etc.) --> */}
           <div className="absolute bottom-4 left-4 text-white text-sm">
-            <span className="bg-white text-black px-2 rounded-md">
+            <span className="bg-gray-200 text-black px-2 py-1 rounded-lg">
               {officialName}
             </span>
           </div>

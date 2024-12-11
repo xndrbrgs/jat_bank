@@ -13,6 +13,17 @@ const LastTransactions = ({
   appwriteItemId,
   page = 1,
 }: LastTransactionsProps) => {
+  const rowsPerPage = 5;
+  const totalPages = Math.ceil(transactions.length / rowsPerPage);
+
+  const indexOfLastTransaction = page * rowsPerPage;
+  const indexOfFirstTransaction = indexOfLastTransaction - rowsPerPage;
+
+  const currentTransactions = transactions.slice(
+    indexOfFirstTransaction,
+    indexOfLastTransaction
+  );
+
   return (
     <section className="w-full mt-8">
       <div className="flex items-center">
@@ -43,12 +54,16 @@ const LastTransactions = ({
               key={account.id}
               className="space-y-4"
             >
-              <BankInfo
-                account={account}
-                appwriteItemId={account.appwriteItemId}
-                type="full"
-              />
-              <TransactionTable transactions={transactions} />
+              <TransactionTable transactions={currentTransactions} />
+            </TabsContent>
+          ))}
+          {accounts.map((account: Account) => (
+            <TabsContent
+              value={account.appwriteItemId}
+              key={account.id}
+              className="space-y-4"
+            >
+              <TransactionTable transactions={currentTransactions} />
             </TabsContent>
           ))}
         </Tabs>

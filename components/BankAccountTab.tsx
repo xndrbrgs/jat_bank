@@ -29,7 +29,7 @@ const BankAccountTab = ({ account, appwriteItemId }: BankTabItemProps) => {
       )}
     >
       <p
-        className={cn(`text-sm line-clamp-1 flex-1 text-gray-500`, {
+        className={cn(`text-sm line-clamp-1 flex-1 text-gray-800`, {
           " text-white": isActive,
         })}
       >
