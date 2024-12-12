@@ -14,6 +14,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "JAT Banking",
   description: "JAT is a modern banking platform for everyone.",
+  referrer: 'origin-when-cross-origin',
+  creator: 'Maxjoy Studio',
 };
 
 export default function RootLayout({
