@@ -162,3 +162,37 @@ export const transactionCategoryStyles = {
     chipBackgroundColor: "bg-inherit",
   },
 };
+
+const cardStyles = {
+  chase: {
+    gradient: "bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900",
+    textColor: "text-white",
+    logo: "CHASE BANK",
+  },
+  bankOfAmerica: {
+    gradient: "bg-gradient-to-r from-red-600 via-blue-700 to-blue-900",
+    textColor: "text-white",
+    logo: "BANK OF AMERICA",
+  },
+  wellsFargo: {
+    gradient: "bg-gradient-to-r from-red-700 via-yellow-600 to-yellow-500",
+    textColor: "text-white",
+    logo: "WELLS FARGO",
+  },
+  citibank: {
+    gradient: "bg-gradient-to-r from-blue-600 via-blue-700 to-red-600",
+    textColor: "text-white",
+    logo: "CITIBANK",
+  },
+  capitalOne: {
+    gradient: "bg-gradient-to-r from-blue-700 via-gray-400 to-gray-800",
+    textColor: "text-white",
+    logo: "CAPITAL ONE",
+  },
+  discover: {
+    gradient: "bg-gradient-to-r from-orange-600 via-orange-700 to-black",
+    textColor: "text-white",
+    logo: "DISCOVER",
+  },
+};
+

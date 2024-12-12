@@ -66,7 +66,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
       ) : variant === "link" ? (
         <Button
           variant="link"
-          className="hover:brightness-[2] transition duration-150"
+          className="hover:brightness-[2] gap-3 transition duration-150"
           onClick={() => open()}
           disabled={!ready}
         >

@@ -83,15 +83,12 @@ const AuthForm = ({ type }: { type: string }) => {
   return (
     <section className="auth-form">
       <header className="flex flex-col gap-5 md:gap-8">
-        <Link href="/">
-          <Image
-            src="/icons/logo.svg"
-            width={30}
-            height={30}
-            alt="Logo Icon"
-            className="cursor-pointer"
-          />
-        </Link>
+        <div className="flex items-center justify-center pr-3">
+          <Link href="/" className="cursor-pointer flex items-center">
+            <Image src="/images/logo.svg" width={64} height={64} alt="Logo" />
+            <span className="font-semibold">JAT Banking</span>
+          </Link>
+        </div>
 
         <div className="flex flex-col gap-1">
           <h1 className="text-2xl">
@@ -200,13 +197,13 @@ const AuthForm = ({ type }: { type: string }) => {
             </form>
           </Form>
           <footer className="flex justify-center gap-2">
-            <p className="text-14 font-normal text-gray-600">
+            <p className="text-md text-gray-500">
               {type === "sign-in"
                 ? "Don't have an account?"
                 : "Already have an account?"}
             </p>
             <Link
-              className="form-link"
+              className="cursor-pointer text-md"
               href={type === "sign-in" ? "/sign-up" : "/sign-in"}
             >
               {type === "sign-in" ? "Sign Up" : "Sign In"}

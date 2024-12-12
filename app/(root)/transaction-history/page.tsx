@@ -32,7 +32,7 @@ const TransactionHistory0 = async ({ searchParams }: SearchParamProps) => {
     indexOfLastTransaction
   );
   return (
-    <div className="no-scrollbar w-full max-xl:max-h-screen max-xl:overflow-y-scroll p-4 m-8">
+    <div className="no-scrollbar w-full max-xl:max-h-screen max-xl:overflow-y-scroll pt-8 px-8">
       <Header
         title="Transaction History"
         subtext="See your bank details and transactions."

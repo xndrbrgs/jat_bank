@@ -16,6 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Footer from "./Logout";
+import PlaidLink from "./PlaidLink";
 
 function MobileNav({ user }: MobileNavProps) {
   const pathname = usePathname();
@@ -31,32 +32,36 @@ function MobileNav({ user }: MobileNavProps) {
             className="cursor-pointer"
           />
         </SheetTrigger>
-        <SheetContent className="border-none bg-black">
+        <SheetContent className="border-l border-gray-800 backdrop-blur-xl flex flex-col justify-between">
           <SheetTitle></SheetTitle>
-          {sidebarLinks.map((link) => {
-            const isActive =
-              pathname === link.route || pathname.startsWith(`${link.route}/`);
-            return (
-              <Link
-                href={link.route}
-                key={link.label}
-                className={cn(
-                  "sidebar-link hover:brightness-[2] transition duration-150",
-                  { "bg-graybg": isActive }
-                )}
-              >
-                <div className="relative size-6">
-                  <Image
-                    src={link.imgURL}
-                    alt={link.label}
-                    fill
-                    className={cn({ "brightness-[2] invert-0": isActive })}
-                  />
-                </div>
-                <p>{link.label}</p>
-              </Link>
-            );
-          })}
+          <span className="flex flex-col gap-y-9">
+            <PlaidLink user={user} variant="link" />
+            {sidebarLinks.map((link) => {
+              const isActive =
+                pathname === link.route ||
+                pathname.startsWith(`${link.route}/`);
+              return (
+                <Link
+                  href={link.route}
+                  key={link.label}
+                  className={cn(
+                    "sidebar-link hover:brightness-[2] transition duration-150",
+                    { "bg-graybg": isActive }
+                  )}
+                >
+                  <div className="relative size-6">
+                    <Image
+                      src={link.imgURL}
+                      alt={link.label}
+                      fill
+                      className={cn({ "brightness-[2] invert-0": isActive })}
+                    />
+                  </div>
+                  <p>{link.label}</p>
+                </Link>
+              );
+            })}
+          </span>
           <Footer user={user} type="mobile" />
         </SheetContent>
       </Sheet>

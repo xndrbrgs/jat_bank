@@ -100,7 +100,7 @@ const QuickTransfer = ({ accounts }: PaymentTransferFormProps) => {
           control={form.control}
           name="senderBank"
           render={() => (
-            <FormItem className="border-t border-gray-800">
+            <FormItem>
               <div className="payment-transfer_form-item pb-6 pt-5">
                 <div className="payment-transfer_form-content">
                   <FormLabel className="text-lg text-white">
@@ -155,7 +155,7 @@ const QuickTransfer = ({ accounts }: PaymentTransferFormProps) => {
           )}
         />
 
-        <div>
+        <div className="border-t border-gray-800 pt-5">
           <h2 className="text-lg text-white">Bank account details</h2>
           <p className="text-sm text-gray-300">
             Enter the bank account details of the recipient
@@ -216,7 +216,7 @@ const QuickTransfer = ({ accounts }: PaymentTransferFormProps) => {
           control={form.control}
           name="amount"
           render={({ field }) => (
-            <FormItem className="border-y border-gray-800">
+            <FormItem className="border-t border-gray-800">
               <div className="py-5">
                 <FormLabel className="text-lg w-full max-w-[280px] text-white">
                   Amount

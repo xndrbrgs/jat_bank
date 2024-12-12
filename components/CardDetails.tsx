@@ -23,7 +23,7 @@ const CardDetails = ({ title }: { title: string }) => {
       onClick={copyToClipboard}
     >
       <p className="line-clamp-1 w-full max-w-full text-xs font-medium text-white">
-        {title} test
+        {title}
       </p>
 
       {!hasCopied ? (

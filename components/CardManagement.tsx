@@ -43,6 +43,9 @@ const CardManagement = ({ banks }: BankProps) => {
               <CarouselPrevious />
               <CarouselNext />
             </div>
+            <span className="flex justify-center w-full md:hidden text-xs text-gray-400 mt-3">
+              Swipe to see cards
+            </span>
           </Carousel>
         </div>
       </div>

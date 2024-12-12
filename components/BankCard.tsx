@@ -13,7 +13,7 @@ const BankCard = ({
 }: BankProps) => {
   return (
     <div className="w-max">
-      <Card className="relative w-96 h-48 bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-xl shadow-xl border-gray-800 overflow-hidden">
+      <Card className="relative fluid-width h-48 bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-xl shadow-xl border-gray-800 overflow-hidden">
         <CardContent className="">
           {/* <!-- Glassmorphism Effect (Backdrop Blur) --> */}
           <div className="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl"></div>
@@ -35,7 +35,7 @@ const BankCard = ({
           </div>
 
           {/* <!-- Optional Card Brand (Visa, MasterCard, etc.) --> */}
-          <div className="absolute bottom-4 left-4 text-white text-sm">
+          <div className="absolute bottom-4 left-4 text-white text-xs sm:text-sm">
             <span className="bg-gray-200 text-black px-2 py-1 rounded-lg">
               {officialName}
             </span>

@@ -16,7 +16,7 @@ const Navbar = ({ user }: SidebarProps) => {
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center">
           <Link href="/" className="cursor-pointer flex items-center">
-            <Image src="/images/logo.png" width={64} height={64} alt="Logo" />
+            <Image src="/images/logo.svg" width={64} height={64} alt="Logo" />
             <span className="font-semibold">JAT Banking</span>
           </Link>
         </div>
@@ -30,7 +30,7 @@ const Navbar = ({ user }: SidebarProps) => {
                 href={link.route}
                 key={link.label}
                 className={cn(
-                  "sidebar-link hover:brightness-[2] transition duration-150",
+                  "navbar-link hover:brightness-[2] transition duration-150",
                   { "bg-graybg": isActive }
                 )}
               >

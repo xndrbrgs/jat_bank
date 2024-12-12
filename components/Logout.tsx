@@ -12,7 +12,7 @@ const Logout = ({ user, type = "desktop" }: FooterProps) => {
     if (loggedOut) router.push("/sign-in");
   };
   return (
-    <footer className="footer">
+    <footer className={type === "mobile" ? "footer-mobile" : "footer"}>
       <div
         className={type === "mobile" ? "footer_email-mobile" : "footer_email"}
       >
@@ -25,11 +25,17 @@ const Logout = ({ user, type = "desktop" }: FooterProps) => {
         <p className="text-xl font-bold text-gray-400 ">{user?.firstName[0]}</p>
       </div>
       <div
-        className="footer_image hover:brightness-[2] transition duration-150 ml-2"
+        className={type === "mobile" ? "footer_image-mobile" : "footer_image"}
         onClick={handleLogOut}
       >
         <Image src="icons/logout.svg" fill alt="Logout Button" />
       </div>
+      {/* <div
+        className="footer_image hover:brightness-[2] transition duration-150 ml-2"
+        onClick={handleLogOut}
+      >
+        <Image src="icons/logout.svg" fill alt="Logout Button" />
+      </div> */}
     </footer>
   );
 };

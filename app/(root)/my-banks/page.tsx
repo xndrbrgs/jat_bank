@@ -10,7 +10,7 @@ const MyBanks = async () => {
     userId: loggedIn.$id,
   });
   return (
-    <section className="flex flex-col m-8">
+    <section className="flex flex-col m-8 h-full md:h-[76.5vh]">
       <Header
         title="My Bank Accounts"
         subtext="Effortlessly manage your banking activities."

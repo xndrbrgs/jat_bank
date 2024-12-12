@@ -25,17 +25,17 @@ const RightSide = async ({
   const account = await getAccount({ appwriteItemId });
   return (
     <aside
-      className="hidden no-scrollbar flex-col border-l border-gray-800 xl:flex 
-    min-w-[40%] max-h-screen h-full"
+      className="hidden flex-col border-l h-full border-gray-800 xl:flex 
+    min-w-[40%]"
     >
-      <section className="m-8 flex flex-col">
-        <div>
-          <h1 className="text-lg">Quick Transfer</h1>
+      <section className="flex flex-col">
+        <div className="border-b border-gray-800 p-8">
+          <h1 className="text-xl">Quick Transfer</h1>
           <QuickTransfer accounts={accountsData} />
         </div>
-        <div className="mt-10 flex flex-col flex-1">
+        <div className="p-8 flex flex-col flex-1">
           <h2 className="text-lg">{user.firstName}'s Top Categories</h2>
-          <div className="space-y-5 mt-4">
+          <div className="space-y-5 my-8">
             {categories.map((category, index) => (
               <Category key={category.name} category={category} />
             ))}

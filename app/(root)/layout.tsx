@@ -1,7 +1,9 @@
+import Footer from "@/components/Footer";
 import MobileNav from "@/components/MobileNav";
 import Navbar from "@/components/Navbar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import Image from "next/image";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function RootLayout({
@@ -17,23 +19,23 @@ export default async function RootLayout({
   }
 
   return (
-    <main className="font-poppins h-screen max-h-screen mx-auto min-[1800px]:max-w-[1536px] min-[1800px]:border-x border-x border-gray-800 relative">
+    <main className="font-poppins mx-auto min-[1800px]:max-w-[1536px] min-[1800px]:border-x border-x border-gray-800 relative">
       <div className="flex size-full flex-col">
         <Navbar user={loggedIn} />
         <div className="flex justify-between items-center md:hidden py-2 pr-4 border-b border-gray-800">
-          <Image
-            src="/images/logo.svg"
-            width={64}
-            height={64}
-            alt="Menu Icon"
-            className="fill-white"
-          />
+          <div className="flex items-center">
+            <Link href="/" className="cursor-pointer flex items-center">
+              <Image src="/images/logo.svg" width={64} height={64} alt="Logo" />
+              <span className="font-semibold">JAT Banking</span>
+            </Link>
+          </div>
           <div>
             <MobileNav user={loggedIn} />
           </div>
         </div>
         {children}
       </div>
+      <Footer />
     </main>
   );
 }
