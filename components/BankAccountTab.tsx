@@ -22,14 +22,14 @@ const BankAccountTab = ({ account, appwriteItemId }: BankTabItemProps) => {
     <div
       onClick={handleBankChange}
       className={cn(
-        `gap-[18px] border-gray-800 border-b-2 flex px-2 sm:px-4 py-2 transition-all`,
+        `gap-4 border-gray-600 border-b flex px-2 sm:px-4 py-2 transition-all`,
         {
           " border-white": isActive,
         }
       )}
     >
       <p
-        className={cn(`text-sm line-clamp-1 flex-1 text-gray-800`, {
+        className={cn(`text-sm line-clamp-1 flex-1 text-gray-600`, {
           " text-white": isActive,
         })}
       >

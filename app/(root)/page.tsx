@@ -41,7 +41,11 @@ const Home = async ({ searchParams }: SearchParamProps) => {
           page={currentPage}
         />
       </div>
-      <RightSide user={loggedIn} transactions={account?.transactions} />
+      <RightSide
+        searchParams={searchParams}
+        user={loggedIn}
+        transactions={account?.transactions}
+      />
     </div>
   );
 };

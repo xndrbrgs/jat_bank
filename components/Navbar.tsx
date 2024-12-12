@@ -12,7 +12,7 @@ import PlaidLink from "./PlaidLink";
 const Navbar = ({ user }: SidebarProps) => {
   const pathname = usePathname();
   return (
-    <nav className="border-b border-gray-800 w-full sticky top-0 left-0 backdrop-blur-2xl z-50">
+    <nav className="hidden md:block border-b border-gray-800 w-full sticky top-0 left-0 backdrop-blur-2xl z-50">
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center">
           <Link href="/" className="cursor-pointer flex items-center">

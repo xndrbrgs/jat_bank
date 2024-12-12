@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BankAccountTab from "./BankAccountTab";
 import BankInfo from "./BankInfo";
 import TransactionTable from "./TransactionTable";
+import TransactionBubble from "./TransactionBubble";
 
 const LastTransactions = ({
   accounts,
@@ -48,22 +49,10 @@ const LastTransactions = ({
               </TabsTrigger>
             ))}
           </TabsList>
+
           {accounts.map((account: Account) => (
-            <TabsContent
-              value={account.appwriteItemId}
-              key={account.id}
-              className="space-y-4"
-            >
-              <TransactionTable transactions={currentTransactions} />
-            </TabsContent>
-          ))}
-          {accounts.map((account: Account) => (
-            <TabsContent
-              value={account.appwriteItemId}
-              key={account.id}
-              className="space-y-4"
-            >
-              <TransactionTable transactions={currentTransactions} />
+            <TabsContent value={account.appwriteItemId} key={account.id}>
+              <TransactionBubble transactions={currentTransactions} />
             </TabsContent>
           ))}
         </Tabs>

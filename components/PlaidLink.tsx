@@ -76,7 +76,7 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
             height={24}
             alt="Connect Bank Icon"
           />
-          <p className="text-sm hidden xl:block">Connect Bank</p>
+          <p className="text-sm">Connect Bank</p>
         </Button>
       ) : (
         <Button className="form-btn" onClick={() => open()} disabled={!ready}>
