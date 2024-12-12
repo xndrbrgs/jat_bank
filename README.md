@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JAT Banking
+
+## Overview
+
+This repository contains the source code for JAT Banking, a money transfer application built using modern web technologies. 
+The app provides secure, seamless, and real-time financial transactions, including user authentication, account management, and payment processing.
+
+---
+
+## Features
+
+- **User Authentication:** Secure sign-up, login, and two-factor authentication.
+- **Money Transfers:** Peer-to-peer money transfer functionality.
+- **Payment Processing:** Integration with third-party payment gateways.
+- **Transaction Tracking:** Real-time transaction history.
+- **Notifications:** Push and email notifications for transactions and updates.
+- **Security:** End-to-end encryption and fraud prevention mechanisms.
+- **Admin Dashboard:** Monitor transactions, manage users, and generate reports.
+
+---
+
+## Technologies Used
+
+- **Frontend:**
+
+  - Framework: Next.js (React-based)
+  - Styling: Tailwind CSS
+
+- **Backend:**
+
+  - Framework: Node.js with Express
+  - Database: Appwrite
+  - Authentication: Auth0
+
+- **Additional Tools:**
+
+  - Payment Gateway: Stripe or PayPal
+  - Notifications: Twilio (SMS), Firebase Cloud Messaging
+  - Hosting: Vercel (Frontend), AWS (Backend/Database)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js v16 or higher
+- Plaid API keys (or alternative payment gateway keys)
+- Dwolla API keys
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/xndrbrgs/jat_bank.git
+   cd cashapp-clone
+   ```
 
-## Learn More
+2. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Set up environment variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   - Create a `.env` file in the root directory.
+   - Add the following variables:
+     ```env
+     DATABASE_URL=your_database_url
+     PLAID_SECRET_KEY=your_stripe_key
+     etc...
+     ```
 
-## Deploy on Vercel
+4. Migrate the database:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npx prisma migrate dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   - Frontend: [http://localhost:3000](http://localhost:3000)
+   - Backend: [http://localhost:5000](http://localhost:5000)
+
+---
+
+## Usage
+
+- Sign up and create a secure account.
+- Add payment methods via the "Wallet" section.
+- Transfer money to other users using their unique ID or QR code.
+- Monitor transaction history and account balance.
+- Receive real-time notifications for each successful transaction.
+
+---
+
+## Deployment
+
+### Frontend
+
+- Deploy to Vercel:
+  ```bash
+  vercel
+  ```
+
+### Backend
+
+- Deploy to AWS or any Node.js-compatible server.
+
+### Database
+
+- Host on Vercel.
+
+---
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+4. Push the branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+---
+
+## Contact
+
+For inquiries or support, please contact Alex Borges at aborgescolon@gmail.com.
+
